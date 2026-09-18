@@ -1,0 +1,144 @@
+# MEDDICC, encoded as data (design.md section 7.1).
+#
+# The criteria, their definitions, their evidence requirements, and the
+# scoring anchors live here rather than in prompt text scattered across the
+# codebase. Two reasons, both practical:
+#
+#   * A score is only interpretable against the definition in force when it
+#     was produced, so the definition has to be a versioned artifact that a
+#     stored score can point at.
+#   * Changing a definition should be a reviewable diff on one file, not a
+#     search for every f-string that mentions "champion".
+#
+# `kind` is the field that section 8.1 says should shape the product:
+# agreement between human raters is decent on factual criteria and poor on
+# judgment ones, so factual criteria can be written back automatically and
+# judgment criteria always go to a human. The value is set from measured
+# inter-rater agreement (docs/evaluation.md), not from taste.
+
+version: 3
+name: MEDDICC
+notes: >
+  Anchor 0 is always "not discussed" and always means no supporting evidence
+  was extracted. It is assigned by code without asking the model, so a model
+  cannot talk itself into evidence that is not there.
+
+criteria:
+  - key: metrics
+    label: Metrics
+    kind: factual
+    fields: [metric]
+    prospect_stated_only: true
+    definition: >
+      Quantified business impact the prospect expects, stated by the
+      prospect. Vendor-asserted ROI does not count.
+    evidence_requires: >
+      a number or measurable outcome stated by a prospect-side participant
+    anchors:
+      0: not discussed
+      1: vague benefit mentioned, no quantification
+      2: a number stated but not tied to a business outcome
+      3: quantified outcome stated by the prospect and tied to a metric they own
+
+  - key: economic_buyer
+    label: Economic Buyer
+    kind: factual
+    fields: [economic_buyer]
+    definition: >
+      The individual with the authority to release the budget for this
+      purchase. Not the project sponsor, not the loudest voice on the call --
+      the person who can say yes to the money.
+    evidence_requires: >
+      a named individual, or an unambiguous role, identified as holding
+      budget authority
+    anchors:
+      0: not discussed
+      1: purchasing process referred to in the abstract, no person identified
+      2: a person or role named, but their budget authority is assumed rather than stated
+      3: a named person whose budget authority is stated on the call
+
+  - key: decision_criteria
+    label: Decision Criteria
+    kind: judgment
+    fields: [decision_criteria]
+    definition: >
+      The stated basis on which the prospect will choose between options --
+      technical requirements, commercial terms, and the relative weight
+      between them.
+    evidence_requires: >
+      at least one criterion the prospect says will be used to decide
+    anchors:
+      0: not discussed
+      1: a general preference expressed, with no way to tell what would disqualify a vendor
+      2: specific criteria stated, with no sense of which matter most
+      3: specific criteria stated, prioritised, and traceable to the people who set them
+
+  - key: decision_process
+    label: Decision Process
+    kind: factual
+    fields: [decision_process]
+    definition: >
+      The steps, approvals, and timing between today and a signature.
+      Security review, procurement, legal, board approval -- whatever this
+      organisation actually requires.
+    evidence_requires: >
+      a described sequence of steps or approvals, not merely a date
+    anchors:
+      0: not discussed
+      1: a decision is said to be coming, with no process described
+      2: some steps named, sequence or owners unclear
+      3: steps, owners, and rough timing described
+
+  - key: identify_pain
+    label: Identify Pain
+    kind: judgment
+    fields: [pain]
+    prospect_stated_only: true
+    definition: >
+      The business problem driving the evaluation, and what it costs to leave
+      it unsolved. A problem nobody is paying for is an interest, not a pain.
+    evidence_requires: >
+      a problem stated by a prospect-side participant, with some indication of
+      consequence
+    anchors:
+      0: not discussed
+      1: a complaint or annoyance mentioned in passing
+      2: a clear problem described, with no stated consequence of inaction
+      3: a clear problem with a stated cost, owner, or deadline attached
+
+  - key: champion
+    label: Champion
+    kind: judgment
+    fields: [champion]
+    definition: >
+      Someone inside the account with influence, who wants this to happen and
+      will sell it internally when you are not in the room.
+    evidence_requires: >
+      an individual who both advocates for the change and has stated or
+      demonstrated internal influence
+    anchors:
+      0: not discussed
+      1: someone is engaged and interested, with no evidence of influence
+      2: an advocate identified, influence assumed rather than evidenced
+      3: an advocate who has acted internally on your behalf, or says they will
+    warning: >
+      Human agreement on this criterion is the lowest of any in the framework
+      (see docs/evaluation.md). A model result that looks poor here is usually
+      the criterion being unreliable rather than the model being wrong. Fix
+      the definition before blaming the model.
+
+  - key: competition
+    label: Competition
+    kind: factual
+    fields: [competitor]
+    definition: >
+      Other vendors, internal builds, and doing nothing. Doing nothing is a
+      competitor and is usually the one that wins.
+    evidence_requires: >
+      a named alternative under consideration, including status quo where the
+      prospect names it as an option
+    anchors:
+      0: not discussed
+      1: alternatives alluded to without being named
+      2: one or more alternatives named
+      3: alternatives named, with the prospect's view of how they compare

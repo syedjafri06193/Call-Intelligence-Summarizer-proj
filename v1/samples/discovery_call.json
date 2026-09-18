@@ -1,0 +1,157 @@
+{
+  "call": {
+    "call_id": "call_demo_001",
+    "external_id": "zoom_88812345",
+    "scheduled_at": "2026-09-16T15:00:00+00:00",
+    "source_type": "zoom_cloud",
+    "channels": 3,
+    "participants": [
+      {
+        "participant_id": "p_rep",
+        "display_name": "Sam Rivera",
+        "email": "sam@northwind.example",
+        "role": "rep"
+      },
+      {
+        "participant_id": "p_dana",
+        "display_name": "Dana Chen",
+        "email": "dana@acme.example",
+        "role": "prospect"
+      },
+      {
+        "participant_id": "p_marco",
+        "display_name": "Marco Diaz",
+        "email": "marco@acme.example",
+        "role": "prospect"
+      }
+    ]
+  },
+  "consent": [
+    {
+      "participant_id": "p_rep",
+      "method": "platform_consent",
+      "evidence_ref": "zoom_consent_event_4471",
+      "recorded_at": "2026-09-16T15:00:04+00:00"
+    },
+    {
+      "participant_id": "p_dana",
+      "method": "verbal_acknowledged",
+      "evidence_ref": "span:s2",
+      "recorded_at": "2026-09-16T15:00:19+00:00"
+    },
+    {
+      "participant_id": "p_marco",
+      "method": "verbal_acknowledged",
+      "evidence_ref": "span:s3",
+      "recorded_at": "2026-09-16T15:00:23+00:00"
+    }
+  ],
+  "transcript": {
+    "asr_engine": "whisper",
+    "asr_model": "large-v3",
+    "segments": [
+      {
+        "segment_id": "s0",
+        "participant_id": "p_rep",
+        "start_ms": 0,
+        "text": "Dana, Marco, thanks for making the time."
+      },
+      {
+        "segment_id": "s1",
+        "participant_id": "p_rep",
+        "start_ms": 4000,
+        "text": "Before we get going, I'm using an AI notetaker and it's recording the call. Is everyone okay with that?"
+      },
+      {
+        "segment_id": "s2",
+        "participant_id": "p_dana",
+        "start_ms": 15000,
+        "text": "Yes, that's fine."
+      },
+      {
+        "segment_id": "s3",
+        "participant_id": "p_marco",
+        "start_ms": 19000,
+        "text": "Sure, go ahead."
+      },
+      {
+        "segment_id": "s4",
+        "participant_id": "p_rep",
+        "start_ms": 23000,
+        "text": "Great. So walk me through how you're handling renewals today."
+      },
+      {
+        "segment_id": "s5",
+        "participant_id": "p_dana",
+        "start_ms": 30000,
+        "text": "Manually, which is the problem. Three people in ops pull the data every month and it takes them about forty hours a week between them."
+      },
+      {
+        "segment_id": "s6",
+        "participant_id": "p_dana",
+        "start_ms": 42000,
+        "text": "We missed two renewals last quarter because of it, and that was roughly two hundred thousand in ARR we had to go and win back."
+      },
+      {
+        "segment_id": "s7",
+        "participant_id": "p_rep",
+        "start_ms": 55000,
+        "text": "Most of our customers see a three hundred percent return in the first year."
+      },
+      {
+        "segment_id": "s8",
+        "participant_id": "p_marco",
+        "start_ms": 63000,
+        "text": "We looked at Salesforce for this last year, and honestly doing nothing is still on the table if the lift is too big."
+      },
+      {
+        "segment_id": "s9",
+        "participant_id": "p_rep",
+        "start_ms": 74000,
+        "text": "Understood. Who would need to sign off on something like this?"
+      },
+      {
+        "segment_id": "s10",
+        "participant_id": "p_dana",
+        "start_ms": 81000,
+        "text": "Priya Raman on the finance side signs off on anything over fifty thousand. You can reach her on priya.raman@acme.example or 415-555-0142."
+      },
+      {
+        "segment_id": "s11",
+        "participant_id": "p_dana",
+        "start_ms": 95000,
+        "text": "I'll take it to her myself once we've seen the security review. I've done that for two other tools this year."
+      },
+      {
+        "segment_id": "s12",
+        "participant_id": "p_marco",
+        "start_ms": 108000,
+        "text": "The security review is the real gate. It goes to our infosec team, then procurement, and that whole thing usually takes about six weeks."
+      },
+      {
+        "segment_id": "s13",
+        "participant_id": "p_dana",
+        "start_ms": 121000,
+        "text": "We want this live before the January renewal cycle, so the decision needs to be made by the end of November."
+      },
+      {
+        "segment_id": "s14",
+        "participant_id": "p_marco",
+        "start_ms": 133000,
+        "text": "What matters most to us is the data residency story, then the integration work, and price after that."
+      },
+      {
+        "segment_id": "s15",
+        "participant_id": "p_rep",
+        "start_ms": 144000,
+        "text": "I'll send the security questionnaire by Friday."
+      },
+      {
+        "segment_id": "s16",
+        "participant_id": "p_dana",
+        "start_ms": 150000,
+        "text": "Actually, on budget, it's more like eighty thousand now that we're including the ops headcount we'd free up."
+      }
+    ]
+  }
+}

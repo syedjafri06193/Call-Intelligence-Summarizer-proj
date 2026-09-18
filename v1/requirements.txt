@@ -1,0 +1,5 @@
+# Runtime
+pyyaml>=6.0
+
+# Tests
+pytest>=8.0

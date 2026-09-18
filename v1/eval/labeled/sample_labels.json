@@ -1,0 +1,12 @@
+{
+  "call_001": {"r1": {"economic_buyer": 3, "champion": 3}, "r2": {"economic_buyer": 3, "champion": 3}, "r3": {"economic_buyer": 3, "champion": 2}},
+  "call_002": {"r1": {"economic_buyer": 0, "champion": 0}, "r2": {"economic_buyer": 0, "champion": 0}, "r3": {"economic_buyer": 0, "champion": 0}},
+  "call_003": {"r1": {"economic_buyer": 2, "champion": 3}, "r2": {"economic_buyer": 2, "champion": 0}, "r3": {"economic_buyer": 2, "champion": 1}},
+  "call_004": {"r1": {"economic_buyer": 3, "champion": 3}, "r2": {"economic_buyer": 3, "champion": 2}, "r3": {"economic_buyer": 3, "champion": 2}},
+  "call_005": {"r1": {"economic_buyer": 1, "champion": 0}, "r2": {"economic_buyer": 1, "champion": 2}, "r3": {"economic_buyer": 1, "champion": 0}},
+  "call_006": {"r1": {"economic_buyer": 0, "champion": 1}, "r2": {"economic_buyer": 0, "champion": 1}, "r3": {"economic_buyer": 0, "champion": 0}},
+  "call_007": {"r1": {"economic_buyer": 3, "champion": 3}, "r2": {"economic_buyer": 3, "champion": 2}, "r3": {"economic_buyer": 3, "champion": 2}},
+  "call_008": {"r1": {"economic_buyer": 2, "champion": 3}, "r2": {"economic_buyer": 2, "champion": 2}, "r3": {"economic_buyer": 2, "champion": 0}},
+  "call_009": {"r1": {"economic_buyer": 1, "champion": 2}, "r2": {"economic_buyer": 1, "champion": 2}, "r3": {"economic_buyer": 1, "champion": 2}},
+  "call_010": {"r1": {"economic_buyer": 3, "champion": 2}, "r2": {"economic_buyer": 3, "champion": 3}, "r3": {"economic_buyer": 3, "champion": 3}}
+}

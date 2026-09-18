@@ -1,0 +1,78 @@
+# BANT, encoded as data (design.md section 7.1).
+#
+# Present as a second framework rather than as an alternative set of prompt
+# strings, because the point of section 7.1 is that the loader is framework
+# agnostic. If adding BANT required touching src/, the encoding would not have
+# worked.
+#
+# BANT is the older and blunter framework. It is kept here because plenty of
+# teams still run on it, and because a framework with four criteria is a
+# useful test that nothing in the scoring layer assumes seven.
+
+version: 1
+name: BANT
+notes: >
+  BANT's "Authority" collapses the economic buyer and the champion into one
+  criterion, which is exactly the conflation MEDDICC exists to undo. Scores
+  are not comparable between the two frameworks, which is why every stored
+  score names the framework and version that produced it.
+
+criteria:
+  - key: budget
+    label: Budget
+    kind: factual
+    fields: [budget]
+    prospect_stated_only: true
+    definition: >
+      Money identified for this purchase, stated by the prospect.
+    evidence_requires: >
+      an amount, a range, or an explicit statement that budget exists and
+      where it sits
+    anchors:
+      0: not discussed
+      1: affordability referred to in general terms
+      2: an amount or range mentioned, source or approval unclear
+      3: an amount stated with the budget holder or approval path identified
+
+  - key: authority
+    label: Authority
+    kind: factual
+    fields: [economic_buyer, champion]
+    definition: >
+      Who can approve the purchase, and who is advocating for it internally.
+    evidence_requires: >
+      a named individual with stated decision-making authority
+    anchors:
+      0: not discussed
+      1: a decision-making group referred to, nobody named
+      2: a person named, authority assumed
+      3: a named person whose authority is stated on the call
+
+  - key: need
+    label: Need
+    kind: judgment
+    fields: [pain, metric]
+    prospect_stated_only: true
+    definition: >
+      A problem the prospect states, and the consequence of not solving it.
+    evidence_requires: >
+      a problem stated by a prospect-side participant
+    anchors:
+      0: not discussed
+      1: general dissatisfaction expressed
+      2: a specific problem described
+      3: a specific problem with stated business consequence
+
+  - key: timing
+    label: Timing
+    kind: factual
+    fields: [timeline]
+    definition: >
+      When the prospect intends to have this solved, and what fixes that date.
+    evidence_requires: >
+      a date, a quarter, or an event that sets the deadline
+    anchors:
+      0: not discussed
+      1: urgency expressed without a date
+      2: a date or period named
+      3: a date named together with the event or obligation that fixes it
