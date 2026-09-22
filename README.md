@@ -27,4 +27,6 @@ The modular structure under `src/cis/` (especially treating transcripts as immut
 I went through the repo, and I think the project has good potential, but the current presentation doesn’t look as professional as the actual work behind it. I can help restructure the README, improve the documentation, UI/presentation, and overall project flow so it looks clean, polished, and production-ready.
 
 
+why do that? git is VCS already, its dumb to have v1 when you can just rewind in git
+
 ## v2
