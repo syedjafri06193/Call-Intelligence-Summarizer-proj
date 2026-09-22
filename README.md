@@ -23,4 +23,8 @@ A few observations and high-impact suggestions:
 
 The modular structure under `src/cis/` (especially treating transcripts as immutable versioned objects and baking idempotency into CRM writebacks) is really well thought out. Getting that architecture documented at the root level is your biggest win right now.
 
+
+I went through the repo, and I think the project has good potential, but the current presentation doesn’t look as professional as the actual work behind it. I can help restructure the README, improve the documentation, UI/presentation, and overall project flow so it looks clean, polished, and production-ready.
+
+
 ## v2
