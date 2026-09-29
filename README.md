@@ -65,3 +65,13 @@ Start with [`v1/README.md`](v1/README.md) for the five design decisions behind t
 | Version | Summary |
 |---|---|
 | [v1](v1/) | Consent-gated pipeline, grounded extraction, YAML frameworks, idempotent CRM write-back, evaluation suite |
+
+## Feedback
+
+Feedback, bug reports and ideas are welcome.
+
+- **Bugs or problems:** [open an issue](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/issues/new) and include your environment, the model or API you're using, steps to reproduce, and the summary you expected versus what you got.
+- **Ideas or questions:** start a thread in [Discussions](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/discussions) (enable it under Settings → General → Features).
+- **Code changes:** pull requests are appreciated; please describe what you changed and how you tested it.
+
+> ⚠️ Please don't attach real call recordings or transcripts. Use synthetic or fully anonymized samples instead.
