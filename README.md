@@ -1,32 +1,67 @@
-# Call-Intelligence-Summarizer-proj
-Transcribes discovery calls, scores them against a qualification framework, and writes structured notes and next steps back to the CRM.
+# Call Intelligence Summarizer
 
-### Feedback
+Transcribes sales discovery calls, scores them against a qualification
+framework (MEDDICC, BANT, or your own), and writes structured notes and next
+steps back to the CRM — with consent, grounding and compliance enforced in code.
 
-## v1
+```
+ call recording
+      │
+      ▼
+ Consent gate ──✗── stop (nothing is fetched)
+      │ ✓
+      ▼
+ Per-speaker ingest ── ASR ── PII redaction ── Grounded extraction ── MEDDICC / BANT scoring ── Idempotent CRM write-back
+   (no voiceprints)           (before the model)  (every claim cites a span)  (ordinal anchors)       (no overwrites, no unconfirmed tasks)
+```
 
-Took a look through the repo—there's actually a lot of solid, production-grade engineering under `v1/` that is completely hidden right now.
+## What makes it different
 
-A few observations and high-impact suggestions:
+- **Consent before the fetch.** Per-participant, evidence-backed, append-only consent; the gate runs before audio is even downloaded.
+- **No voiceprints.** Speakers come from per-speaker tracks, stereo channels, or a human — never vocal biometrics (avoids BIPA exposure).
+- **PII redaction** on everything sent to the model, restored on the way back.
+- **Grounded claims.** Every extracted fact must cite a transcript span; invented quotes are discarded and logged.
+- **Pluggable rubrics.** Qualification frameworks are versioned YAML — see [`v1/docs/frameworks/`](v1/docs/frameworks/).
+- **Idempotent CRM sync** that never overwrites a rep's note.
 
-1. **The root README is selling the project short:**
-   Right now, the top-level README is a single sentence. Anyone landing on the repo has no idea that you’ve already implemented consent gating, grounded extraction, and sales framework scoring. Moving an architectural flow diagram (`Audio -> Consent Gate -> ASR -> PII Redaction -> Grounded Extraction -> MEDDICC/BANT Scoring -> Idempotent CRM Sync`) into the root README would immediately showcase the depth of the pipeline.
+## Quick start
 
-2. **Highlight the compliance & consent layer:**
-   Having dedicated `consent/gate.py` and `redact/pii.py` modules is a major differentiator. In commercial call intelligence (Gong/Chorus alternatives), legal two-party consent recording laws and PII compliance are usually the hardest roadblocks. Putting your consent detection and redaction flow front-and-center makes the project look enterprise-ready rather than a toy wrapper.
+Runs fully offline — no API key, no network:
 
-3. **Showcase the YAML-driven frameworks (`meddicc.yaml` / `bant.yaml`):**
-   Having qualification scoring decoupled into YAML definitions with anchors is a great design choice. Including a brief snippet in the docs showing how a team can plug in their own custom qualification rubric (e.g. SPICED, CHAMP) would make it much easier for open-source contributors to adopt.
+```bash
+cd v1
+make install    # pyyaml + pytest
+make demo       # full pipeline on samples/discovery_call.json
+make test       # 387 tests
+```
 
-4. **Provide a quickstart CLI example:**
-   You already have `cli.py` and a sample `discovery_call.json`. Adding a 3-step "run this locally on sample data in 30 seconds" snippet to the README will drastically reduce the friction for people trying it out.
+## Adding your own framework
 
-The modular structure under `src/cis/` (especially treating transcripts as immutable versioned objects and baking idempotency into CRM writebacks) is really well thought out. Getting that architecture documented at the root level is your biggest win right now.
+Copy [`v1/docs/frameworks/bant.yaml`](v1/docs/frameworks/bant.yaml), rename it
+(e.g. `spiced.yaml`), and edit the criteria, definitions and evidence bars. The
+loader is framework-agnostic, so no code changes are needed.
 
+## Repository layout
 
-I went through the repo, and I think the project has good potential, but the current presentation doesn’t look as professional as the actual work behind it. I can help restructure the README, improve the documentation, UI/presentation, and overall project flow so it looks clean, polished, and production-ready.
+```
+.
+├── README.md          ← you are here
+├── FEEDBACK.md        ← reviewer feedback by version
+├── docs/
+│   ├── design.md      ← full design guide (the spec code comments cite)
+│   └── design.pdf     ← same guide, PDF
+└── v1/                ← first implementation
+    ├── src/cis/       consent, ingest, asr, transcript, redact, extract, score, crm, workflows
+    ├── tests/         387 tests, incl. consent-gate call counts and a no-voiceprint scan
+    ├── eval/          inter-rater agreement, extraction metrics, rerun consistency
+    ├── samples/       discovery_call.json
+    └── docs/          legal notes, evaluation, frameworks, spec errata
+```
 
+Start with [`v1/README.md`](v1/README.md) for the five design decisions behind the architecture.
 
-why do that? git is VCS already, its dumb to have v1 when you can just rewind in git
+## Versions
 
-## v2
+| Version | Summary |
+|---|---|
+| [v1](v1/) | Consent-gated pipeline, grounded extraction, YAML frameworks, idempotent CRM write-back, evaluation suite |

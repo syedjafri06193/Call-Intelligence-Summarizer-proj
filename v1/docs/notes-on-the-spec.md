@@ -1,6 +1,6 @@
 # Notes on the design document
 
-Places where this implementation departs from `Documentation/README.md`, and
+Places where this implementation departs from `docs/design.md`, and
 why. Every entry is a deliberate divergence with a test behind it, not a
 shortcut.
 
