@@ -1,13 +1,34 @@
-# OS / editor clutter
-.DS_Store
-Thumbs.db
-*.swp
-.vscode/
-.idea/
+# Secrets: never commit these
+.env
+.env.*
+*.key
+secrets/
 
 # Python
 __pycache__/
-*.pyc
+*.py[cod]
+*.egg-info/
+build/
+dist/
 
-# Per-version build outputs are ignored in each vN/.gitignore
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Test and tool caches
 .pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Local outputs (live-run logs, scratch files)
+*.log
+scratch/
