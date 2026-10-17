@@ -48,7 +48,17 @@ def _heading(text: str) -> None:
 def cmd_demo(args: argparse.Namespace) -> int:
     sample = load_sample(args.sample)
     framework = load_framework(args.framework)
-    model = ScriptedModel(fabricate=not args.no_fabrication)
+
+    if args.live:
+        if args.provider == "groq":
+            from .extract.groq_extractor import GroqExtractor
+            model = GroqExtractor()
+        else:
+            from .extract.llm_extractor import LLMExtractor
+            model = LLMExtractor()
+    else:
+        model = ScriptedModel(fabricate=not args.no_fabrication)
+
     judge = ScriptedJudge()
 
     result = run(
@@ -221,7 +231,6 @@ def cmd_agreement(args: argparse.Namespace) -> int:
 
 # -------------------------------------------------------------------- cli
 
-
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="cis", description=__doc__)
     sub = parser.add_subparsers(dest="command", required=True)
@@ -239,6 +248,17 @@ def build_parser() -> argparse.ArgumentParser:
         "--no-fabrication",
         action="store_true",
         help="stop the scripted model inventing a quote",
+    )
+    demo.add_argument(
+        "--live",
+        action="store_true",
+        help="use a real LLM instead of the scripted model",
+    )
+    demo.add_argument(
+        "--provider",
+        choices=["groq", "anthropic"],
+        default="groq",
+        help="which API --live should call",
     )
     demo.set_defaults(func=cmd_demo)
 
