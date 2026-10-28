@@ -131,9 +131,9 @@ Requirements on an implementation:
 - Set `asr_engine`, `asr_model`, `vocabulary_hash=hints.hash` on the transcript.
 
 v1 ships only `SampleTranscriber` (reads the sample JSON, synthesises word timings at
-`MS_PER_WORD = 380`). Real ASR (Whisper or hosted) is on the [roadmap](../v1/ROADMAP.md).
+`MS_PER_WORD = 380`). Real ASR (Whisper or hosted) is on the [roadmap](ROADMAP.md).
 
 ## Measuring ASR
 
 Measure ASR separately from extraction (§8.4): WER by source type, and proper-noun error rate
-on participant and account names. See [`v1/docs/evaluation.md` §7](../v1/docs/evaluation.md).
+on participant and account names. See [`v1/docs/evaluation.md` §7](evaluation.md).

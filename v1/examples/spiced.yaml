@@ -1,0 +1,92 @@
+# SPICED, encoded as data: a worked example of adding your own framework.
+#
+# Nothing in src/ knows about SPICED. Copy this file, change the criteria,
+# and validate it with:
+#
+#   python3 -m cis.cli framework --framework examples/spiced.yaml
+#
+# Every criterion maps onto fields the extractor already produces (see
+# cis.extract.grounded.Field), so scores stay grounded in transcript spans.
+
+version: 1
+name: SPICED
+notes: >
+  SPICED (Situation, Pain, Impact, Critical Event, Decision) is a
+  customer-centric framework from Winning by Design. It overlaps MEDDICC on
+  pain and decision, and adds Situation, which this pipeline can only judge
+  from the prospect's own description of their current state.
+
+criteria:
+  - key: situation
+    label: Situation
+    kind: judgment
+    fields: [pain, decision_criteria]
+    prospect_stated_only: true
+    definition: >
+      The prospect's current state: tools, process and context relevant to
+      the problem.
+    evidence_requires: >
+      a prospect-side description of how they work today
+    anchors:
+      0: not discussed
+      1: current state alluded to in general terms
+      2: current tools or process described
+      3: current state described together with why it no longer works
+
+  - key: pain
+    label: Pain
+    kind: judgment
+    fields: [pain]
+    prospect_stated_only: true
+    definition: >
+      A problem the prospect states in their own words.
+    evidence_requires: >
+      a problem stated by a prospect-side participant
+    anchors:
+      0: not discussed
+      1: general dissatisfaction expressed
+      2: a specific problem described
+      3: a specific problem the prospect says they must fix
+
+  - key: impact
+    label: Impact
+    kind: factual
+    fields: [metric]
+    prospect_stated_only: true
+    definition: >
+      The measurable business effect of the pain, or of solving it.
+    evidence_requires: >
+      a number, a rate, or a named business outcome
+    anchors:
+      0: not discussed
+      1: impact described qualitatively
+      2: a metric named without a value
+      3: a metric with a current and a target value
+
+  - key: critical_event
+    label: Critical Event
+    kind: factual
+    fields: [timeline]
+    definition: >
+      A dated event that forces a decision, and what happens if it is missed.
+    evidence_requires: >
+      a date or event that sets the deadline
+    anchors:
+      0: not discussed
+      1: urgency expressed without a date
+      2: a date or period named
+      3: a date named together with the consequence of missing it
+
+  - key: decision
+    label: Decision
+    kind: factual
+    fields: [decision_process, economic_buyer]
+    definition: >
+      How the purchase gets approved, and by whom.
+    evidence_requires: >
+      named approval steps or a named approver
+    anchors:
+      0: not discussed
+      1: a decision process referred to, no steps or names
+      2: steps or an approver named
+      3: steps and the approver named, with dates

@@ -1,8 +1,8 @@
 # Documentation
 
 Documentation for the Call Intelligence Summarizer (CIS). The **design guide**
-([`design.md`](design.md)) is the specification; everything else here describes the
-implementation in [`v1/`](../v1/) — how it works, how to run it, and how to extend it.
+([`design.md`](../design.md)) is the specification; everything else here describes the
+implementation in [`v1/`](./) — how it works, how to run it, and how to extend it.
 
 ## Start here
 
@@ -39,21 +39,20 @@ implementation in [`v1/`](../v1/) — how it works, how to run it, and how to ex
 
 - [Project status & known issues](project-status.md)
 - [Contributing](contributing.md)
-- [Changelog](../CHANGELOG.md)
-- [Roadmap](../v1/ROADMAP.md)
+- [Roadmap](ROADMAP.md)
 
 ## Existing v1 documents (unchanged)
 
 | Document | Purpose |
 |---|---|
-| [`v1/docs/legal.md`](../v1/docs/legal.md) | Legal and consent policy — the "why" behind the consent gate |
-| [`v1/docs/evaluation.md`](../v1/docs/evaluation.md) | Evaluation methodology: ceilings, alpha, extraction metrics |
-| [`v1/docs/notes-on-the-spec.md`](../v1/docs/notes-on-the-spec.md) | Where v1 deliberately diverges from `design.md`, and why |
-| [`v1/docs/frameworks/`](../v1/docs/frameworks/) | `meddicc.yaml`, `bant.yaml` |
+| [`v1/docs/legal.md`](legal.md) | Legal and consent policy — the "why" behind the consent gate |
+| [`v1/docs/evaluation.md`](evaluation.md) | Evaluation methodology: ceilings, alpha, extraction metrics |
+| [`v1/docs/notes-on-the-spec.md`](notes-on-the-spec.md) | Where v1 deliberately diverges from `design.md`, and why |
+| [`v1/docs/frameworks/`](../../v1/docs/frameworks/) | `meddicc.yaml`, `bant.yaml` |
 
 ## Conventions
 
-- "§N.M" refers to a section of [`design.md`](design.md). The code cites the same numbers in its
+- "§N.M" refers to a section of [`design.md`](../design.md). The code cites the same numbers in its
   docstrings, so `grep -rn "section 9.4" v1/src` finds the implementation of §9.4.
 - Paths are relative to the repository root unless they start with `src/`, `tests/` or
   `eval/`, which are relative to `v1/`.

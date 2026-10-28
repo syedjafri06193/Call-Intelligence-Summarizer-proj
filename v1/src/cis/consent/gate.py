@@ -277,7 +277,7 @@ def may_process(
 
     # An explicit refusal stops processing in ANY mode. "One party consented"
     # is a defence against nobody having said yes; it is not a defence against
-    # someone having said no, and docs/legal.md commits to withdrawal being as
+    # someone having said no, and 1—Documentation/v1/legal.md commits to withdrawal being as
     # easy as consent. UNKNOWN is different -- that is the case one-party mode
     # exists for -- so only DECLINED and WITHDRAWN block here.
     refusals = tuple(b for b in blocks if b.blocker in _EXPLICIT_REFUSALS)

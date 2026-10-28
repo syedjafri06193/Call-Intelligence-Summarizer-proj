@@ -1,11 +1,11 @@
 # Consent
 
-Package: `cis.consent` · Design: §2, §3 · Policy rationale: [`v1/docs/legal.md`](../v1/docs/legal.md)
+Package: `cis.consent` · Design: §2, §3 · Policy rationale: [`v1/docs/legal.md`](legal.md)
 
 Consent is the first thing the system does and the gate on everything else. It is modelled as
 **state** (an append-only ledger of evidence-backed records) rather than a flag on a call.
 
-> This page documents what the code does. It is not legal advice; [`legal.md`](../v1/docs/legal.md)
+> This page documents what the code does. It is not legal advice; [`legal.md`](legal.md)
 > explains the reasoning and flags where counsel's view is needed.
 
 ## Model (`consent/model.py`)

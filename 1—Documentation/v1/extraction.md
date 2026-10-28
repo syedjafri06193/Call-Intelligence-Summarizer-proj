@@ -179,7 +179,7 @@ Implementations: `ScriptedModel` (offline; deliberately fabricates one champion 
 
 ## Known extraction issues (from the live run)
 
-From [`v1/ROADMAP.md`](../v1/ROADMAP.md): duplicate tasks when one sentence is filed as both
+From [`v1/ROADMAP.md`](ROADMAP.md): duplicate tasks when one sentence is filed as both
 `commitment` and `next_step` with different wording; a participant ID leaking into `value`;
 "Jan" vs "January" reported as a timeline contradiction; merged facts in one `metric`; recall
 misses. Most need reconciliation changes (e.g. dedupe by shared span) rather than prompt

@@ -80,7 +80,7 @@ class NoSpeakerAttribution(RuntimeError):
         super().__init__(
             f"call {call_id}: {detail}\n"
             "\n"
-            "Options, in order of preference (docs/legal.md section 4.3):\n"
+            "Options, in order of preference (1—Documentation/v1/legal.md section 4.3):\n"
             "  1. transcribe unattributed -- pass require_attribution=False. "
             "Useful for keyword search and topics; NOT usable for 'who "
             "committed to what'.\n"
@@ -90,7 +90,7 @@ class NoSpeakerAttribution(RuntimeError):
             "Voice-based diarization is disabled by policy. Deriving speaker "
             "identity from vocal characteristics plausibly creates a biometric "
             "identifier under Illinois BIPA, which carries $1,000-$5,000 per "
-            "voiceprint and is class-actionable. See docs/legal.md section 2.3."
+            "voiceprint and is class-actionable. See 1—Documentation/v1/legal.md section 2.3."
         )
 
 

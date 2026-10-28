@@ -64,7 +64,7 @@ class Segment:
             raise ValueError(
                 f"unknown attribution {self.attribution!r}. Speaker identity "
                 "comes from platform tracks, stereo channels, or a human -- "
-                "never from voice characteristics (docs/legal.md section 2.3)."
+                "never from voice characteristics (1—Documentation/v1/legal.md section 2.3)."
             )
         if self.attribution == "none" and self.participant_id is not None:
             raise ValueError(

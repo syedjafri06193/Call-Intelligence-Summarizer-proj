@@ -663,3 +663,20 @@ class TestTheJudgeIsAModelToo:
             redactor=self.Redactor(),
         )
         assert score.rationale == "Priya signs off"
+
+
+EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
+
+
+def test_spiced_example_framework_loads_and_uses_only_known_fields():
+    """The docs point users at examples/spiced.yaml as the template for a
+    custom framework, so it must keep loading as the loader evolves."""
+    fw = load_framework(EXAMPLES / "spiced.yaml")
+    assert fw.name == "SPICED"
+    assert [c.key for c in fw.criteria] == [
+        "situation", "pain", "impact", "critical_event", "decision",
+    ]
+    known = {f.value for f in Field}
+    for criterion in fw.criteria:
+        assert criterion.fields, criterion.key
+        assert {f.value if hasattr(f, "value") else f for f in criterion.fields} <= known
