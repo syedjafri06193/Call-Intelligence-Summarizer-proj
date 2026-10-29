@@ -85,3 +85,39 @@ Feedback, bug reports and ideas are welcome.
 ## Documentation
 
 All documentation lives in [`1—Documentation/`](1—Documentation/README.md) — start with its index.
+
+<!-- project-metrics:start -->
+## Project Metrics
+
+[![Stars](https://img.shields.io/github/stars/syedjafri06193/Call-Intelligence-Summarizer-proj?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/stargazers) [![Forks](https://img.shields.io/github/forks/syedjafri06193/Call-Intelligence-Summarizer-proj?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/forks) [![Open issues](https://img.shields.io/github/issues/syedjafri06193/Call-Intelligence-Summarizer-proj?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/issues) [![Last commit](https://img.shields.io/github/last-commit/syedjafri06193/Call-Intelligence-Summarizer-proj/improvements?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/commits/improvements) [![Commits](https://img.shields.io/github/commit-activity/t/syedjafri06193/Call-Intelligence-Summarizer-proj?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj/commits/improvements) [![Top language](https://img.shields.io/github/languages/top/syedjafri06193/Call-Intelligence-Summarizer-proj?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj) [![Repo size](https://img.shields.io/github/repo-size/syedjafri06193/Call-Intelligence-Summarizer-proj?style=flat-square)](https://github.com/syedjafri06193/Call-Intelligence-Summarizer-proj)
+
+### Code
+
+| Metric | Value |
+|---|---|
+| Lines of code | 6,264 |
+| Source files | 40 |
+| Tracked files | 89 |
+| Documentation | 30 Markdown files (36,232 words), 1 PDF |
+| Commits | 18 |
+| Contributors | 2 |
+| Active | 2026-09-11 → 2026-10-28 |
+
+| Language | Lines | Share |
+|---|---:|---:|
+| Python | 5,972 | 95.3% |
+| YAML | 259 | 4.1% |
+| Makefile | 29 | 0.5% |
+| INI | 4 | 0.1% |
+
+### Performance
+
+| Metric | Result |
+|---|---|
+| Model agreement vs human ceiling (4 MEDDICC criteria) | **94–96%** |
+| Live run, Groq `gpt-oss-120b`, sample call | 100% coverage, **0.0% hallucination** (38/38 quotes) |
+
+<sub>Measured figures recorded in [`1—Documentation/v1/evaluation.md`](1%E2%80%94Documentation/v1/evaluation.md).</sub>
+
+<sub>Code stats as of 2026-10-28, counted with pygount (comments and blank lines excluded). Badges update live.</sub>
+<!-- project-metrics:end -->
