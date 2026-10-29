@@ -1,7 +1,7 @@
 # Project Status & Known Issues
 
 Snapshot of `main` as of October 2026. Forward-looking plans live in
-[`v1/ROADMAP.md`](../v1/ROADMAP.md); this page records what exists and what is wrong with it.
+[`v1/ROADMAP.md`](ROADMAP.md); this page records what exists and what is wrong with it.
 
 ## Implemented (v1)
 
@@ -27,7 +27,7 @@ Snapshot of `main` as of October 2026. Forward-looking plans live in
 Real ASR, real meeting-platform client, real CRM connector, live judge, review UI, persistence
 (ledger, transcripts, journal), durable workflow engine, retention/deletion jobs, access
 control, packaging (`pyproject.toml`), CI. Notes on deliberate scope:
-[`notes-on-the-spec.md` §11](../v1/docs/notes-on-the-spec.md).
+[`notes-on-the-spec.md` §11](notes-on-the-spec.md).
 
 ## Known issues
 

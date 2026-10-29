@@ -1,6 +1,6 @@
 # Scoring & Frameworks
 
-Package: `cis.score` · Design: §7, §8.1 · Frameworks: [`v1/docs/frameworks/`](../v1/docs/frameworks/)
+Package: `cis.score` · Design: §7, §8.1 · Frameworks: [`v1/docs/frameworks/`](../../v1/docs/frameworks/)
 
 A call is scored against a **framework**: a versioned YAML file of criteria, each with a
 definition, an evidence requirement and an ordinal **anchor** scale. The framework is data —
@@ -91,7 +91,7 @@ class AnchorJudge(Protocol):
 ```
 
 v1 ships only `ScriptedJudge` (level 3 if ≥ 2 quotes, else 2) — not a model. A live judge is
-on the [roadmap](../v1/ROADMAP.md). Implementing one:
+on the [roadmap](ROADMAP.md). Implementing one:
 
 ```python
 class ClaudeJudge:
@@ -123,8 +123,8 @@ exactly the conflation MEDDICC exists to undo.
 
 ## Writing your own framework
 
-1. Copy [`bant.yaml`](../v1/docs/frameworks/bant.yaml) to e.g. `spiced.yaml`.
-2. Edit criteria. A complete working example is in [`examples/spiced.yaml`](examples/spiced.yaml).
+1. Copy [`bant.yaml`](../../v1/docs/frameworks/bant.yaml) to e.g. `spiced.yaml`.
+2. Edit criteria. A complete working example is in [`v1/examples/spiced.yaml`](../../v1/examples/spiced.yaml).
 3. Validate: `python3 -m cis.cli framework --framework path/to/spiced.yaml`
 4. Run: `python3 -m cis.cli demo --framework path/to/spiced.yaml`
 

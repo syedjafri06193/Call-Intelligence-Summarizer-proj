@@ -1,6 +1,6 @@
 # Evaluation Tooling
 
-Package: `eval/` (inside `v1/`) · Methodology: [`v1/docs/evaluation.md`](../v1/docs/evaluation.md) ·
+Package: `eval/` (inside `v1/`) · Methodology: [`v1/docs/evaluation.md`](evaluation.md) ·
 Design: §8, §7.4
 
 The methodology document explains **why**; this page documents the **code**. Three things are

@@ -624,7 +624,7 @@ class TestRelaxationsNeedAnAuthoriser:
 
 class TestOnePartyDoesNotOverrideARefusal:
     """"One party consented" answers "did anyone say yes", not "did anyone
-    say no". docs/legal.md commits to withdrawal being as easy as consent,
+    say no". 1—Documentation/v1/legal.md commits to withdrawal being as easy as consent,
     and a policy switch that silently outranks a withdrawal would break that.
     """
 

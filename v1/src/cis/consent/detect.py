@@ -93,7 +93,7 @@ class DeletionRequired(RuntimeError):
         super().__init__(
             f"consent detection found nothing usable for call {call_id}: "
             f"{reason}. Delete all fetched audio and derived artifacts now "
-            "(docs/legal.md section 3.3)."
+            "(1—Documentation/v1/legal.md section 3.3)."
         )
 
 

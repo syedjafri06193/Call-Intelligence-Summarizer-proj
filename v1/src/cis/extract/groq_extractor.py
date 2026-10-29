@@ -4,7 +4,6 @@ import json
 import logging
 import os
 from typing import Any, Sequence
-import sys
 from .grounded import Field
 logger = logging.getLogger(__name__)
 

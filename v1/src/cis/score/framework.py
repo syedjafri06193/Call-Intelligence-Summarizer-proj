@@ -48,7 +48,7 @@ class CriterionKind(str, Enum):
 
     This is the field the CRM writeback layer reads to decide what may be
     written without a human looking at it. It is set from measured agreement
-    in docs/evaluation.md, not from an opinion about which criteria feel hard.
+    in 1—Documentation/v1/evaluation.md, not from an opinion about which criteria feel hard.
     """
 
     FACTUAL = "factual"

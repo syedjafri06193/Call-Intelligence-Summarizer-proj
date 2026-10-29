@@ -60,8 +60,8 @@ not read by the sample loader.
 ## Framework YAML
 
 See [scoring-and-frameworks.md → Schema](scoring-and-frameworks.md#schema). Examples:
-[`meddicc.yaml`](../v1/docs/frameworks/meddicc.yaml), [`bant.yaml`](../v1/docs/frameworks/bant.yaml),
-[`examples/spiced.yaml`](examples/spiced.yaml).
+[`meddicc.yaml`](../../v1/docs/frameworks/meddicc.yaml), [`bant.yaml`](../../v1/docs/frameworks/bant.yaml),
+[`v1/examples/spiced.yaml`](../../v1/examples/spiced.yaml).
 
 ## Rater labels
 

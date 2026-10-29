@@ -1,6 +1,6 @@
 # PII Redaction
 
-Package: `cis.redact` · Design: §10.2 · Policy: [`v1/docs/legal.md` §4.1](../v1/docs/legal.md)
+Package: `cis.redact` · Design: §10.2 · Policy: [`v1/docs/legal.md` §4.1](legal.md)
 
 > "If transcripts go to a hosted LLM, redact first. Detect and replace, keeping a local mapping
 > so you can restore for display." — §10.2

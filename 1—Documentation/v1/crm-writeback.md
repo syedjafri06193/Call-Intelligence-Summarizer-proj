@@ -70,7 +70,7 @@ to write — a silent skip would look like "found nothing".
 `call:{id}:tv{transcript_version}:ev{extraction_version}` changes exactly when you reprocess
 with a new model or transcript, so it creates a second note — failing its own goal. v1's key
 identifies the **thing**, and versions go into the payload as provenance instead
-([notes-on-the-spec §1](../v1/docs/notes-on-the-spec.md)).
+([notes-on-the-spec §1](notes-on-the-spec.md)).
 
 ```python
 identity_key("call_demo_001", "summary")          # "call:call_demo_001:summary"
@@ -183,4 +183,4 @@ the review UI. A bare weekday resolves to the next occurrence, including the cal
 
 Duplicate tasks: one sentence extracted as both `commitment` and `next_step`, with slightly
 different values, yields two proposals with different fingerprints. Fix planned in
-reconciliation (dedupe by shared span) — see [`v1/ROADMAP.md`](../v1/ROADMAP.md).
+reconciliation (dedupe by shared span) — see [`v1/ROADMAP.md`](ROADMAP.md).

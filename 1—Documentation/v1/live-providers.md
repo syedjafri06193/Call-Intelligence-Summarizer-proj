@@ -107,7 +107,7 @@ Then wire it into `cmd_demo` (`--provider`) and add an offline test with a fake 
 
 ## Observed results
 
-From [`v1/ROADMAP.md`](../v1/ROADMAP.md), Groq with `gpt-oss-120b` on the sample call: owners
+From [`v1/ROADMAP.md`](ROADMAP.md), Groq with `gpt-oss-120b` on the sample call: owners
 resolved, Friday task due 2026-09-18, budget contradiction reduced to the real $50k vs $80k,
 champion found, metrics level 3, 100 % coverage, 0.0 % hallucination (38/38 quotes) — but with
 duplicate tasks, a participant ID leaking into a `value`, a false timeline contradiction, a

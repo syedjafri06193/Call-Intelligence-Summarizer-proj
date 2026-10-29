@@ -15,7 +15,7 @@ Bug reports, ideas and pull requests are welcome.
 1. Read [architecture.md → Invariants](architecture.md#invariants). Changing an invariant is a
    design discussion, not a PR detail.
 2. Find the design section your change touches; code docstrings cite `design.md` sections.
-3. If you disagree with the design, record it in [`v1/docs/notes-on-the-spec.md`](../v1/docs/notes-on-the-spec.md)
+3. If you disagree with the design, record it in [`v1/docs/notes-on-the-spec.md`](notes-on-the-spec.md)
    alongside the change — that is how v1 handled its divergences.
 
 ## Development loop

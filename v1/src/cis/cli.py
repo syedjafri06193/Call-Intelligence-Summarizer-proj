@@ -104,7 +104,7 @@ def cmd_demo(args: argparse.Namespace) -> int:
     print(
         "  note:            roster names are pseudonymised; a name that is not\n"
         "                   on the roster is not detected, and the demo's\n"
-        "                   'Priya Raman' is exactly that case (docs/legal.md)."
+        "                   'Priya Raman' is exactly that case (1—Documentation/v1/legal.md)."
     )
     if model.seen:
         first = model.seen[0].splitlines()

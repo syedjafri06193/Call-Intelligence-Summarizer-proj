@@ -135,11 +135,11 @@ def test_no_voice_modelling_imports(path: Path):
                     f"{path.relative_to(ROOT)} imports {module!r}, which performs "
                     "voice-characteristic speaker modelling.\n\n"
                     "Speaker identity comes from per-speaker platform tracks or "
-                    "stereo channels, never from voice. See docs/legal.md "
+                    "stereo channels, never from voice. See 1—Documentation/v1/legal.md "
                     "section 2.3 -- BIPA exposure is $1,000-$5,000 PER "
                     "VOICEPRINT and class-actionable.\n\n"
                     "If you are here because attribution is missing on some "
-                    "calls, the supported answers are in docs/legal.md: "
+                    "calls, the supported answers are in 1—Documentation/v1/legal.md: "
                     "transcribe unattributed, ask the rep to label the turns, "
                     "or skip the call."
                 )
@@ -158,7 +158,7 @@ def test_no_voice_embedding_api_surface(path: Path):
             pytest.fail(
                 f"{path.relative_to(ROOT)}:{line} references "
                 f"{match.group(0)!r}, which names a voice-embedding operation.\n"
-                "See docs/legal.md section 2.3. If this is a false positive, "
+                "See 1—Documentation/v1/legal.md section 2.3. If this is a false positive, "
                 "add the file to ALLOWED_MENTIONS with a comment explaining "
                 "why -- deliberately, in a reviewed diff."
             )
@@ -208,7 +208,7 @@ def test_no_third_party_voice_dependencies_are_declared():
             package = forbidden.split(".")[0].lower()
             assert package not in text, (
                 f"{name} declares a dependency on {package!r}. "
-                "See docs/legal.md section 2.3."
+                "See 1—Documentation/v1/legal.md section 2.3."
             )
 
 
@@ -218,8 +218,8 @@ def test_the_commitments_are_written_down_where_they_can_be_found():
     A test asserting a legal position is only useful if the position is also
     stated somewhere a lawyer, a customer, or a new engineer would look.
     """
-    legal = ROOT / "docs" / "legal.md"
-    assert legal.exists(), "docs/legal.md is required -- section 14"
+    legal = ROOT.parent / "1—Documentation" / "v1" / "legal.md"
+    assert legal.exists(), "1—Documentation/v1/legal.md is required -- section 14"
     text = legal.read_text(encoding="utf-8").lower()
 
     for phrase in (
@@ -227,4 +227,4 @@ def test_the_commitments_are_written_down_where_they_can_be_found():
         "no training on customer data",
         "bipa",
     ):
-        assert phrase in text, f"docs/legal.md does not state {phrase!r}"
+        assert phrase in text, f"1—Documentation/v1/legal.md does not state {phrase!r}"
