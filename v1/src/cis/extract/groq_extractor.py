@@ -79,20 +79,4 @@ class GroqExtractor:
 
     @staticmethod
     def _clean(args: dict, allowed: set[str]) -> dict:
-        out: dict = {}
-        for name, payload in args.items():
-            if name not in allowed or not isinstance(payload, dict):
-                continue
-            quotes = [q for q in payload.get("quotes", [])
-                      if isinstance(q, str) and q.strip()]
-            value = payload.get("value")
-            if not quotes or not value:
-                continue
-            # No "confidence": a number a model reports about itself is not a
-            # measurement. The pipeline's default of 0.5 applies.
-            out[name] = {"value": str(value), "quotes": quotes}
-        return out
-
-    @staticmethod
-    def _clean(args: dict, allowed: set[str]) -> dict:
         return clean_claims(args, allowed)
