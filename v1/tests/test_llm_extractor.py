@@ -1,5 +1,6 @@
 from types import SimpleNamespace
 
+from cis.crm.tasks import TASK_THRESHOLD
 from cis.extract.grounded import Field
 from cis.extract.llm_extractor import (
     LLMExtractor,
@@ -30,7 +31,33 @@ def test_returns_protocol_shape():
                                   "quotes": ["it's more like eighty thousand"]}})
     out = LLMExtractor(client=fake).extract("...", FIELDS)
     assert out == {"budget": {"value": "$80k",
-                              "quotes": ["it's more like eighty thousand"]}}
+                              "quotes": ["it's more like eighty thousand"],
+                              "confidence": 0.5}}
+
+
+def test_explicit_support_clears_task_threshold():
+    fake = FakeClient({"commitment": {"value": "Send the questionnaire",
+                                      "quotes": ["I'll send it by Friday"],
+                                      "support": "explicit"}})
+    out = LLMExtractor(client=fake).extract("...", [Field.COMMITMENT])
+    assert out["commitment"]["confidence"] >= TASK_THRESHOLD
+
+
+def test_implied_support_stays_below_task_threshold():
+    fake = FakeClient({"commitment": {"value": "Maybe follow up",
+                                      "quotes": ["we could circle back"],
+                                      "support": "implied"}})
+    out = LLMExtractor(client=fake).extract("...", [Field.COMMITMENT])
+    assert out["commitment"]["confidence"] < TASK_THRESHOLD
+
+
+def test_participant_id_is_passed_through():
+    fake = FakeClient({"commitment": {"value": "Send the questionnaire",
+                                      "quotes": ["I'll send it by Friday"],
+                                      "support": "explicit",
+                                      "participant_id": "p_rep"}})
+    out = LLMExtractor(client=fake).extract("...", [Field.COMMITMENT])
+    assert out["commitment"]["subject_participant_id"] == "p_rep"
 
 
 def test_drops_unknown_field_and_empty_quotes():

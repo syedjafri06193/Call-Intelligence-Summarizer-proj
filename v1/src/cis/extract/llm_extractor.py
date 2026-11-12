@@ -143,13 +143,8 @@ class LLMExtractor:
         for block in resp.content:
             if getattr(block, "type", None) != "tool_use":
                 continue
-            for name, payload in (block.input or {}).items():
-                if name not in allowed or not isinstance(payload, dict):
-                    continue
-                quotes = [q for q in payload.get("quotes", [])
-                          if isinstance(q, str) and q.strip()]
-                value = payload.get("value")
-                if not quotes or not value:
-                    continue
-                out[name] = {"value": str(value), "quotes": quotes}
+            # Same cleaning as every other provider, so `support` becomes a
+            # confidence and `participant_id` survives. Parsing it by hand
+            # here left every claim at the 0.5 default, below TASK_THRESHOLD.
+            out.update(clean_claims(block.input or {}, allowed))
         return out
